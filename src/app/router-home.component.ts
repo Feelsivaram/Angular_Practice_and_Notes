@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'my-router-home',
-  template: `
+    selector: 'my-router-home',
+    template: `
     <div class="panel-group" id="accordion">
       <div class="panel panel-default">
         <div class="panel-heading" routerLink="Data-Binding">
@@ -47,26 +47,26 @@ import { Router } from '@angular/router';
       </div>
     </div>
   `,
-  styles: ['.panel-heading { cursor: pointer; }']
+    styles: ['.panel-heading { cursor: pointer; }']
 })
 export class RouterHomeComponent {
 
-  toggle: boolean = false;
+    toggle: boolean = false;
 
-  constructor(private route: Router) { }
+    constructor(private route: Router) { }
 
-  togglePanel(collapsePanel) {
-    var collapseBody = document.getElementsByClassName('collapse');
-    if (!this.toggle) document.getElementById('collapse' + collapsePanel).classList.add('in');
-    else {
-      var i = 0;
-      while (i < collapseBody.length) {
-        collapseBody[i].classList.remove("in");
-        i++;
-      }
+    togglePanel(collapsePanel) {
+        var collapseBody = document.getElementsByClassName('collapse');
+        if (!this.toggle) document.getElementById('collapse' + collapsePanel).classList.add('in');
+        else {
+            var i = 0;
+            while (i < collapseBody.length) {
+                collapseBody[i].classList.remove("in");
+                i++;
+            }
+        }
+        this.toggle = !this.toggle;
+        this.route.navigate(['Home']);
     }
-    this.toggle = !this.toggle;
-    this.route.navigate(['Home']);
-  }
 
 }
